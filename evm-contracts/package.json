@@ -1,0 +1,7 @@
+{
+  "name": "@zktnetwork/contracts",
+  "version": "0.0.2",
+  "description": "Smart contracts and their language abstractions for zktnetwork",
+  "license": "MIT",
+  "private": false
+}
