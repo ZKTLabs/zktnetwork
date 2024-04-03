@@ -1,8 +1,27 @@
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.20;
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.0;
 
-interface IComplianceRegistry {
-    function isWhitelist(address account) external view returns (bool);
+import {ProposalCommon} from "../libraries/ProposalCommon.sol";
 
-    function isBlacklist(address account) external view returns (bool);
+interface IComplianceEntry {
+    struct Compliance {
+        bytes32 proposalId;
+        address author;
+        string description;
+        bool isInList;
+    }
+}
+
+interface IComplianceRegistry is IComplianceEntry {
+    function addProposalToList(
+        ProposalCommon.Proposal memory proposal
+    ) external;
+
+    function checkAddress(address account) external view returns (bool);
+
+    function revokeCompliance(
+        address account,
+        address author,
+        bytes32 proposalId
+    ) external;
 }

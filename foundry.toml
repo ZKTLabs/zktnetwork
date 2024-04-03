@@ -1,0 +1,5 @@
+[profile.default]
+src = "evm-contracts/src"
+
+[fuzz]
+runs = 500
