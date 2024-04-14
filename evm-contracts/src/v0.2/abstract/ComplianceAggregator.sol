@@ -9,13 +9,13 @@ error ComplianceAggregator__ExcludeBlacklistAction();
 abstract contract ComplianceAggregator {
 
     modifier onlyWhitelistAction() {
-        if (!stub.isWhitelist(msg.sender))
+        if (!stub.isWhitelist(tx.origin))
             revert ComplianceAggregator__OnlyWhitelistAction();
         _;
     }
 
     modifier ExcludeBlacklistAction() {
-        if (stub.isBlacklist(msg.sender))
+        if (stub.isBlacklist(tx.origin))
             revert ComplianceAggregator__ExcludeBlacklistAction();
         _;
     }
