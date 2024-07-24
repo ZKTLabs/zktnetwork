@@ -14,7 +14,7 @@ contract ComplianceRegistryStub is IComplianceRegistryStub, AccessControl {
         keccak256("PROPOSAL_MANAGEMENT_ROLE");
 
     constructor(address _whitelistRegistry, address _blacklistRegistry) {
-        _setupRole(ADMIN_ROLE, _msgSender());
+        _grantRole(ADMIN_ROLE, _msgSender());
         _setRoleAdmin(PROPOSAL_MANAGEMENT_ROLE, ADMIN_ROLE);
 
         whitelistRegistry = IComplianceRegistry(_whitelistRegistry);

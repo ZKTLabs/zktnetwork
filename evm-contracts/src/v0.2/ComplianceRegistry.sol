@@ -14,7 +14,7 @@ contract ComplianceRegistry is IComplianceRegistry, AccessControl {
     mapping(address => Compliance) public complianceList;
 
     constructor(bool _isWhitelistRegistry) {
-        _setupRole(ADMIN_ROLE, _msgSender());
+        _grantRole(ADMIN_ROLE, _msgSender());
         _setRoleAdmin(COMPLIANCE_REGISTRY_STUB_ROLE, ADMIN_ROLE);
 
         isWhitelistRegistry = _isWhitelistRegistry;
